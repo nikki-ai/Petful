@@ -2,13 +2,14 @@ const express = require('express');
 const peopleService = require('./people.service');
 const json = require('body-parser').json();
 
-const peoplerouter = express.Router();
+const peopleRouter = express.Router();
 
-peoplerouter.route('/')
+peopleRouter
+  .route('/')
   .get((req, res) => {
     // Return all the people currently in the queue.
     const getAllPeople = peopleService.getAllPeople();
-
+    console.log(getAllPeople);
     res.status(200).json(getAllPeople);
   })
   .post(json, (req, res) => {
@@ -20,4 +21,4 @@ peoplerouter.route('/')
     res.status(201).json(addingPerson);
   });
 
-module.exports = peoplerouter;
+module.exports = peopleRouter;

@@ -15,7 +15,7 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors({ origin: CLIENT_ORIGIN }));
 
-app.use('/people', require('../people/people.router'));
-app.use('/pets', require('../pets/pets.router'));
+app.use('/people', peopleRouter);
+app.use('/pets', petsRouter);
 
 module.exports = app;
